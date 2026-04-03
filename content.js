@@ -19,8 +19,8 @@
 
         const key = cells.join("|");
 
-        if (!pageMap.has(key)) {
-          pageMap.set(key, cells); // ✅ only page duplicate remove
+        if (!pageRows.has(key)) {
+          pageRows.set(key, cells); // ✅ only page duplicate remove
         }
       });
   }
