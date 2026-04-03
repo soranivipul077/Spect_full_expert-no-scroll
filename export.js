@@ -21,7 +21,7 @@
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = `AGGRID_COMBINED_${new Date().toISOString().slice(0,10)}.csv`;
+    a.download = `AGGRID_COMBINED_${new Date().toISOString()}.csv`;
     document.body.appendChild(a);
     a.click();
     a.remove();

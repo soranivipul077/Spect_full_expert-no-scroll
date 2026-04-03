@@ -13,6 +13,7 @@
       headers = [...headerCells].map(h => h.innerText.trim()).filter(Boolean);
     }
 
+
     /* 🔹 COLLECT VISIBLE ROWS */
     function collectVisibleRows(removeDuplicate) {
       document.querySelectorAll('.ag-center-cols-container .ag-row').forEach(row => {
@@ -31,6 +32,9 @@
         }
       });
     }
+
+
+    
 
     /* 🔹 AUTO SCROLL MODE */
     if (scrollEnabled) {
@@ -66,6 +70,11 @@
     pageRows.forEach(r => {
       allRows.push(r);
     });
+
+
+
+
+
 
     chrome.storage.local.set(
       { headers, rows: allRows },
