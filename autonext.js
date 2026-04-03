@@ -39,11 +39,24 @@
     return false;
   }
 
+  async function grind_expend(params) {
+    const grid = document.querySelector("ag-grid-angular");
+
+    if (!grid) {
+      alert("AG-Grid not found");
+      return;
+    }
+
+    grid.style.height = "15000px";
+    //grid.style.maxHeight = '9000px';
+    //grid.style.minHeight = '9000px';
+  }
+
   chrome.storage.local.get(
     ["scrollEnabled", "headers", "rows"],
     async (res) => {
       const scrollEnabled = res.scrollEnabled !== false; // default ON
-     let pageRows = [];
+      let pageRows = [];
       const allRows = res.rows || [];
       let headers = res.headers || [];
 
@@ -79,7 +92,11 @@
 
       for (let i = 1; i <= totalPages; i++) {
         console.log(`📄 Page ${i}`);
-        pageRows=[];
+        pageRows = [];
+        await grind_expend();
+        await wait(800);
+
+
         /* 🔹 AUTO SCROLL MODE */
         if (scrollEnabled) {
           const viewport = document.querySelector(".ag-body-viewport");
@@ -93,7 +110,7 @@
           while (true) {
             collectVisibleRows(true); // duplicate REMOVE
 
-            viewport.scrollTop += 300;
+            viewport.scrollTop += 1200;
             await new Promise((r) => setTimeout(r, 120));
 
             if (viewport.scrollTop === lastScrollTop) break;
@@ -120,13 +137,13 @@
             `This page: ${pageRows.length}\n` +
             `Total stored: ${allRows.length}`,
         );
-       
 
         await wait(1000); // wait before next page
         await clickNext();
         await wait(800); // wait for page transition
         await waitForLoader();
         await wait(1000); // wait after loader
+        
       }
 
       chrome.storage.local.set({ headers, rows: allRows }, () => {
