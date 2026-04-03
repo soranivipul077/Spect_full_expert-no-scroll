@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "AG-Grid CSV Multi-Page Export",
+  "version": "2.1",
+  "description": "Collect multi-page AG-Grid data and export combined CSV",
+  "permissions": ["activeTab", "scripting", "storage", "downloads"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

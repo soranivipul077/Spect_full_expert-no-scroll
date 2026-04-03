@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 10px;
+        width: 260px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      #clearBtn {
+        background: #ffecec;
+      }
+      small {
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="countBox"
+      style="margin-bottom: 10px; font-weight: bold; color: #0a5"
+    >
+      Collected Rows: 0
+    </div>
+
+    <button id="scrollToggleBtn"> Scroll: ON</button>
+    <button id="collectBtn">Collect This Page</button>
+    <button id="exportBtn">Export CSV (Combined)</button>
+    <button id="clearBtn">Clear Stored Data</button>
+    <button id="expandBtn">Expand Grid (Height 9000px)</button>
+    <button id="autoallpage">Auto page next with data collect</button>
+
+
+    <small>
+      Collect each page Export once<br />
+      Clear resets all stored data
+    </small>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
