@@ -111,7 +111,7 @@
             collectVisibleRows(true); // duplicate REMOVE
 
             viewport.scrollTop += 1200;
-            await new Promise((r) => setTimeout(r, 120));
+            await wait(180);
 
             if (viewport.scrollTop === lastScrollTop) break;
             lastScrollTop = viewport.scrollTop;
